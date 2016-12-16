@@ -1,0 +1,12 @@
+---
+
+vagrant_network_interface: enp0s8
+vagrant_primary_manager_ip: "{{ hostvars['manager0']['ansible_'+vagrant_network_interface].ipv4.address }}"
+
+docker_syslog_tag: "{% raw %}'{{.Hostname}}|{{.ImageName}}|{{.Name}}|{{.ID}}|{{.ContainerLabels}}|{{.ContainerCreated}}'{% endraw %}"
+
+# Logging
+logstash_host: "{{ hostvars['manager0']['ansible_'+vagrant_network_interface].ipv4.address }}"
+
+#GLOBALS
+gluster_mount_dir: /mnt/gluster

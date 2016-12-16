@@ -1,0 +1,7 @@
+---
+- hosts: gluster
+  become: yes
+  become_user: root
+  roles:
+    - { role: geerlingguy.glusterfs, tags: [glusterfs] }
+    - { role: glusterfs, tags: [glusterfs-volume] }
